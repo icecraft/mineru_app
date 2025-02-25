@@ -1,0 +1,3 @@
+include src/header.html
+include src/examples/*.pdf
+recursive-include src *.html *.pdf 

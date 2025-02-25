@@ -1,0 +1,14 @@
+notes.txt
+.DS_Store
+.env
+node_modules
+.vscode
+__pycache__
+*.egg-info
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+output/
+archive/
