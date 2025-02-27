@@ -2,10 +2,9 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ master ]
-    tags: [ '*released' ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*released'
+  workflow_dispatch:
 
 jobs:
   build-and-push:
@@ -33,7 +32,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           TAG_NAME=${GITHUB_REF#refs/tags/}
-          CLEAN_TAG=${TAG_NAME%released}
+          CLEAN_TAG=${TAG_NAME%-released}
           echo "tag=${CLEAN_TAG}" >> $GITHUB_OUTPUT
           echo "Tagged version: ${CLEAN_TAG}"
 
