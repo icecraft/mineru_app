@@ -14,7 +14,7 @@ WORKDIR /app
 COPY . .
 
 # Install Python dependencies
-RUN pip3 install -r requirements.txt --no-cache-dir
+RUN pip3 install -r requirements.txt --no-cache-dir --break-system-packages
 
 # Set environment variable
 ENV GRADIO_SSR_MODE="true"
