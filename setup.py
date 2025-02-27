@@ -30,10 +30,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={
-        'src': [
-            'header.html',
-            'examples/*.pdf',
-        ],
+        'src': ["**"],
     },
     classifiers=[
         "Programming Language :: Python :: 3",
