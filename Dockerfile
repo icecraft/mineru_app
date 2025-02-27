@@ -2,8 +2,10 @@ FROM node:20-alpine AS node_base
 
 # Install Python 3.10 and other necessary packages
 RUN apk add --no-cache \
-    python3=~3.12 \
-    py3-pip 
+    python3 \
+    py3-pip \
+    build-base \
+    python3-dev
 
 # Set the working directory
 WORKDIR /app
@@ -12,7 +14,7 @@ WORKDIR /app
 COPY . .
 
 # Install Python dependencies
-RUN pip3 install -r requirements.txt --no-cache-dir --break-system-packages
+RUN pip3 install -r requirements.txt --no-cache-dir
 
 # Set environment variable
 ENV GRADIO_SSR_MODE="true"
