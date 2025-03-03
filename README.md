@@ -13,6 +13,8 @@ docker pull registry.cn-hangzhou.aliyuncs.com/data_proc/mineru_app:v0.0.10
 
 ## Start
 
+Please apply for an api key at [mineru official website](https://mineru.net/apiManage/docs)
+
 ```bash
 export MINERU_API_KEY=your_api_key
 mineru_app
