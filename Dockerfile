@@ -1,11 +1,13 @@
-FROM node:20-alpine AS node_base
+FROM python:3.10-slim
 
-# Install Python 3.10 and other necessary packages
-RUN apk add --no-cache \
-    python3 \
-    py3-pip \
-    build-base \
-    python3-dev
+# Install Node.js
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
@@ -14,13 +16,17 @@ WORKDIR /app
 COPY . .
 
 # Install Python dependencies
-RUN pip3 install -r requirements.txt --no-cache-dir --break-system-packages
-
-# Set environment variable
-ENV GRADIO_SSR_MODE="true"
+RUN pip install requests \
+    python-dotenv \
+    PyMuPDF==1.24.9 \
+    gradio \
+    gradio_client \
+    gradio_pdf==0.0.19
 
 # Expose the port your app runs on
 EXPOSE 7860
+
+ENV GRADIO_SSR_MODE="true"
 
 # Command to run your application
 CMD ["python3", "src/app.py"]
