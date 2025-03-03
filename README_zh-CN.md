@@ -1,24 +1,30 @@
 ## 安装
 
-MinerU(>=0.8.0)
- >如已有正常运行的MinerU环境则可以跳过此步骤
-> 
-[在CPU环境部署](https://github.com/opendatalab/MinerU/blob/master/README_zh-CN.md#%E4%BD%BF%E7%94%A8cpu%E5%BF%AB%E9%80%9F%E4%BD%93%E9%AA%8C)
-
-[在GPU环境部署](https://github.com/opendatalab/MinerU/blob/master/README_zh-CN.md#%E4%BD%BF%E7%94%A8gpu)
-
-第三方软件
 
 ```bash
-pip install gradio gradio-pdf
+pip install mineru_app
 ```
 
-## 启动gradio应用
+或使用 docker 
 
 ```bash
-python app.py
+docker pull registry.cn-hangzhou.aliyuncs.com/data_proc/mineru_app:v0.0.6
 ```
 
-## 使用gradio应用
+## 启动
 
-在浏览器中访问 http://127.0.0.1:7860
+```bash
+export MINERU_API_KEY=your_api_key
+mineru_app
+```
+
+或使用 docker
+
+```bash
+docker run -d -p 7860:7860 -e MINERU_API_KEY=your_api_key registry.cn-hangzhou.aliyuncs.com/data_proc/mineru_app:v0.0.6
+```
+
+
+## 访问
+
+在浏览器中打开 http://127.0.0.1:7860 

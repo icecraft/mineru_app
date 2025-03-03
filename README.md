@@ -1,24 +1,31 @@
 ## Installation
 
-MinerU(>=0.8.0)
- > If you already have a functioning MinerU environment, you can skip this step.
- > 
-[Deploy in CPU environment](https://github.com/opendatalab/MinerU?tab=readme-ov-file#quick-cpu-demo)
-
-[Deploy in GPU environment](https://github.com/opendatalab/MinerU?tab=readme-ov-file#using-gpu)
-
-Third-party Software
 
 ```bash
-pip install gradio gradio-pdf
+pip install mineru_app
 ```
 
-## Start Gradio App
+or using docker 
 
 ```bash
-python app.py
+docker pull registry.cn-hangzhou.aliyuncs.com/data_proc/mineru_app:v0.0.6
 ```
+
+## Start
+
+```bash
+export MINERU_API_KEY=your_api_key
+mineru_app
+```
+
+or using docker
+
+```bash
+docker run -d -p 7860:7860 -e MINERU_API_KEY=your_api_key registry.cn-hangzhou.aliyuncs.com/data_proc/mineru_app:v0.0.6
+```
+
 
 ## Use Gradio App
 
 Access http://127.0.0.1:7860 in your web browser
+
