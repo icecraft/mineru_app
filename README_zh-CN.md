@@ -8,7 +8,7 @@ pip install mineru_app
 或使用 docker 
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/data_proc/mineru_app:v0.0.6
+docker pull registry.cn-hangzhou.aliyuncs.com/data_proc/mineru_app:v0.0.10
 ```
 
 ## 启动
